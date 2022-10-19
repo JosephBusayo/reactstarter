@@ -1,22 +1,25 @@
 import React, { useState, useEffect } from 'react';
 
-const url = 'https://api.github.com/users';
 
 // second argument
+const url = 'https://api.github.com/users';
 
 const UseEffectFetchData = () => {
   const [users, setUsers] = useState([]);
-
+  
   const getUsers = async () => {
     const response = await fetch(url);
-    const users = await response.json();
-    setUsers(users);
+    const new_users = await response.json();
+    setUsers(new_users);
     // console.log(users);
   };
 
   useEffect(() => {
+    console.log('use effect');
     getUsers();
   }, []);
+
+
   return (
     <>
       <h3>github users</h3>
