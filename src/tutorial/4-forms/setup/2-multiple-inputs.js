@@ -7,13 +7,20 @@ import React, { useState } from 'react';
 //dynamc object keys
 
 const ControlledInputs = () => {
-  const [person, setPerson] = useState({ firstName: '', email: '', age: '' });
+  const [person, setPerson] = useState(
+    { firstName: '',
+      email: '',
+      age: '' 
+    });
+
   const [people, setPeople] = useState([]);
+
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     setPerson({ ...person, [name]: value });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (person.firstName && person.email && person.age) {
@@ -22,8 +29,9 @@ const ControlledInputs = () => {
       setPerson({ firstName: '', email: '', age: '' });
     }
   };
+
   return (
-    <>
+    <section>
       <article className='form'>
         <form>
           <div className='form-control'>
@@ -73,7 +81,7 @@ const ControlledInputs = () => {
           );
         })}
       </article>
-    </>
+    </section>
   );
 };
 
